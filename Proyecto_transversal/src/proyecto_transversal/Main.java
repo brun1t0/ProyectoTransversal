@@ -23,7 +23,7 @@ public class Main {
     public static void main(String[] args) {
         //System.out.println("holaaaaaaaaa");
         
-        Alumno alumno = new Alumno(23425724, "Suarez", "Alan", LocalDate.of(1999, Month.MARCH, 12), true);
+        Alumno alumno = new Alumno(7010567, "Suarez", "Alan", LocalDate.of(1999, Month.MARCH, 12), true);
         AlumnoData alumnodata = new AlumnoData();
         alumnodata.guardarAlumno(alumno);
     }
