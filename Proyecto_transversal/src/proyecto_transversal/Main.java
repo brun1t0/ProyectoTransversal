@@ -4,6 +4,9 @@
  */
 package proyecto_transversal;
 
+import java.sql.Connection;
+import proyecto_transversal.AccesoDatos.Conexion;
+
 /**
  *
  * @author Usuario
@@ -15,6 +18,8 @@ public class Main {
      */
     public static void main(String[] args) {
         System.out.println("holaaaaaaaaa");
+        
+        Connection con=Conexion.getConexion();
     }
     
 }
