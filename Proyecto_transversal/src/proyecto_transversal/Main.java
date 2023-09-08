@@ -5,7 +5,11 @@
 package proyecto_transversal;
 
 import java.sql.Connection;
+import java.time.LocalDate;
+import java.time.Month;
+import proyecto_transversal.AccesoDatos.AlumnoData;
 import proyecto_transversal.AccesoDatos.Conexion;
+import proyecto_transversal.Entidades.Alumno;
 
 /**
  *
@@ -19,7 +23,9 @@ public class Main {
     public static void main(String[] args) {
         //System.out.println("holaaaaaaaaa");
         
-        Connection con=Conexion.getConexion();
+        Alumno alumno = new Alumno(23425724, "Suarez", "Alan", LocalDate.of(1999, Month.MARCH, 12), true);
+        AlumnoData alumnodata = new AlumnoData();
+        alumnodata.guardarAlumno(alumno);
     }
     
 }
