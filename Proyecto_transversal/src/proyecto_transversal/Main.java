@@ -21,11 +21,12 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        //System.out.println("holaaaaaaaaa");
+        System.out.println("holaaaaaaaaa");
         
         Alumno alumno = new Alumno(12345678, "Suarez", "Alan", LocalDate.of(1999, Month.MARCH, 12), true);
         AlumnoData alumnodata = new AlumnoData();
         alumnodata.guardarAlumno(alumno);
+        
     }
     
 }

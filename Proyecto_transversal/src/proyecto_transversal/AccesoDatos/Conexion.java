@@ -5,6 +5,7 @@
 package proyecto_transversal.AccesoDatos;
 
 import java.sql.*;
+import java.util.Scanner;
 import javax.swing.JOptionPane;
 
 
@@ -16,7 +17,7 @@ public class Conexion {
      private static Connection connection;
             
      private Conexion () {}
-     
+
      public static Connection getConexion() {
      
          if (connection ==null) {
