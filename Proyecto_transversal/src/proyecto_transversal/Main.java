@@ -9,7 +9,10 @@ import java.time.LocalDate;
 import java.time.Month;
 import proyecto_transversal.AccesoDatos.AlumnoData;
 import proyecto_transversal.AccesoDatos.Conexion;
+import proyecto_transversal.AccesoDatos.InscripcionData;
 import proyecto_transversal.Entidades.Alumno;
+import proyecto_transversal.Entidades.Inscripciones;
+import proyecto_transversal.Entidades.Materia;
 
 /**
  *
@@ -23,9 +26,20 @@ public class Main {
     public static void main(String[] args) {
         //System.out.println("holaaaaaaaaa");
         
-        Alumno alumno = new Alumno(12345678, "Suarez", "Alan", LocalDate.of(1999, Month.MARCH, 12), true);
-        AlumnoData alumnodata = new AlumnoData();
-        alumnodata.guardarAlumno(alumno);
+//        Alumno alumno = new Alumno(4770678, "Suarez", "Alan", LocalDate.of(1999, Month.MARCH, 12), true);
+//        Materia mat = new Materia(3, "Matematica", 3, true);
+//        
+//        AlumnoData alumnodata = new AlumnoData();
+//        
+//        
+//        alumnodata.guardarAlumno(alumno);
+//        
+
+//        
+      InscripcionData insc = new InscripcionData();
+        insc.obtenerInscripciones();
+       
+        
     }
     
 }

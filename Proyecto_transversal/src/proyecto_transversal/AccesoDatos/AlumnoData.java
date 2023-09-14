@@ -44,7 +44,7 @@ public class AlumnoData {
 
         }
     }
-    public void buscarAlumno(int id){
+    public Alumno buscarAlumno(int id){
         Alumno alumno = null;
         String sql = "SELECT dni, apellido, nombre, fechaNacimiento FROM alumno WHERE idAlumno = ? AND estado = true";
         PreparedStatement ps = null;
@@ -77,9 +77,9 @@ public class AlumnoData {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Alumno"+ex.getMessage());
         }
-      
+      return alumno;
     }   
-    public void buscarAlumnoPorDni(int dni){
+    public Alumno buscarAlumnoPorDni(int dni){
         Alumno alumno = null;
         String sql = "SELECT idAlumno, dni, apellido, nombre, fechaNacimiento FROM alumno WHERE dni = ? AND estado = true";
         PreparedStatement ps = null;
@@ -113,7 +113,7 @@ public class AlumnoData {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Alumno"+ex.getMessage());
         }
-        
+        return alumno;
     }
     public List<Alumno> listarAlumnos(){
             List<Alumno> alumnos = new ArrayList<>();
