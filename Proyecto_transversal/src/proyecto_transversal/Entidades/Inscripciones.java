@@ -24,6 +24,12 @@ public class Inscripciones {
         this.materia = materia;
         this.nota = nota;
     }
+    
+    public Inscripciones(int IdInscripcion, Alumno alumno, double nota) {
+        this.alumno = alumno;
+        this.idInscripcion = IdInscripcion;
+        this.nota = nota;
+    }
 
     public Inscripciones(double nota) {
         this.nota = nota;
@@ -63,7 +69,7 @@ public class Inscripciones {
 
     @Override
     public String toString() {
-        String insc=idInscripcion+" "+alumno.getApellido() + alumno.getNombre() +" "+materia.getNombre()+" con nota: "+nota;
+        String insc=idInscripcion +" "+alumno.getNombre() +" "+ nota;
         return insc;                   
     }
     
