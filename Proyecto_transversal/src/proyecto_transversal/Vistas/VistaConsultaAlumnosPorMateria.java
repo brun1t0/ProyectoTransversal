@@ -27,9 +27,9 @@ public class VistaConsultaAlumnosPorMateria extends javax.swing.JInternalFrame {
         tituloPrincipal = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
-        selectorAlumno = new javax.swing.JComboBox<>();
+        selectorMateria = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tablaNotas = new javax.swing.JTable();
+        tablaMaterias = new javax.swing.JTable();
         btSalir = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
@@ -51,25 +51,33 @@ public class VistaConsultaAlumnosPorMateria extends javax.swing.JInternalFrame {
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Seleccione una materia");
 
-        selectorAlumno.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        selectorAlumno.addActionListener(new java.awt.event.ActionListener() {
+        selectorMateria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        selectorMateria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                selectorAlumnoActionPerformed(evt);
+                selectorMateriaActionPerformed(evt);
             }
         });
 
-        tablaNotas.setModel(new javax.swing.table.DefaultTableModel(
+        tablaMaterias.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3"
+                "ID", "DNI", "Apellido", "Nombre"
             }
-        ));
-        jScrollPane1.setViewportView(tablaNotas);
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Short.class, java.lang.Short.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tablaMaterias);
 
         btSalir.setText("Salir");
 
@@ -82,8 +90,8 @@ public class VistaConsultaAlumnosPorMateria extends javax.swing.JInternalFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(621, 621, 621)
-                        .addComponent(btSalir, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE))
+                        .addContainerGap(621, Short.MAX_VALUE)
+                        .addComponent(btSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(57, 57, 57)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -91,7 +99,7 @@ public class VistaConsultaAlumnosPorMateria extends javax.swing.JInternalFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGap(127, 127, 127)
-                                .addComponent(selectorAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(selectorMateria, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(64, 64, 64))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -118,7 +126,7 @@ public class VistaConsultaAlumnosPorMateria extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(selectorAlumno, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE))
+                    .addComponent(selectorMateria, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE))
                 .addGap(35, 35, 35)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
@@ -140,9 +148,9 @@ public class VistaConsultaAlumnosPorMateria extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void selectorAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectorAlumnoActionPerformed
+    private void selectorMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectorMateriaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_selectorAlumnoActionPerformed
+    }//GEN-LAST:event_selectorMateriaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -152,8 +160,8 @@ public class VistaConsultaAlumnosPorMateria extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JComboBox<String> selectorAlumno;
-    private javax.swing.JTable tablaNotas;
+    private javax.swing.JComboBox<String> selectorMateria;
+    private javax.swing.JTable tablaMaterias;
     private javax.swing.JLabel tituloPrincipal;
     // End of variables declaration//GEN-END:variables
 }
