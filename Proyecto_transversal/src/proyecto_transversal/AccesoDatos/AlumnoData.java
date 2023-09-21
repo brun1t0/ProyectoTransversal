@@ -164,15 +164,20 @@ public class AlumnoData {
     public void eleminarAlumno(int id){
         try{
             String sql = "UPDATE alumno SET estado = 0 WHERE idAlumno =?";
-            PreparedStatement ps = con.prepareCall(sql);
+            
+            PreparedStatement ps = con.prepareStatement(sql);
+            
             ps.setInt(1, id);
-            int fila = ps.executeUpdate();
-            if (fila == 1){
-                JOptionPane.showMessageDialog(null,"Se elimino el alumno");
-            }
-        ps.close();
+            
+            int filas = ps.executeUpdate();
+            if (filas > 0){
+            JOptionPane.showMessageDialog(null,"Se elimino el alumno");
+            }            
+            ps.close();
+            
+        
         } catch(SQLException e) {
-            JOptionPane.showMessageDialog(null,"Error al acceder a la tabla Alumno");
+            JOptionPane.showMessageDialog(null,"Error al acceder a la tabla Alumno: " + e.getMessage());
              
         }
         

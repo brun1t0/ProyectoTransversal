@@ -97,10 +97,10 @@ public class MateriaData {
             String sql = "UPDATE materia SET  estado = 0 WHERE idMateria = ?" ;
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, id);
-            int fila = ps.executeUpdate();
+            int filas = ps.executeUpdate();
             
-            if(fila == 1){
-                JOptionPane.showMessageDialog(null, "Se elimino la materia");
+            if (filas > 0){
+            JOptionPane.showMessageDialog(null, "Se elimino la materia");
             }
             ps.close();
         }catch(SQLException ex){

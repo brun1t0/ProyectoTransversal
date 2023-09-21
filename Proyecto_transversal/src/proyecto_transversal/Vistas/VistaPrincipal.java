@@ -45,11 +45,11 @@ public class VistaPrincipal extends javax.swing.JFrame {
         Alumnos.setLayout(AlumnosLayout);
         AlumnosLayout.setHorizontalGroup(
             AlumnosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 747, Short.MAX_VALUE)
+            .addGap(0, 753, Short.MAX_VALUE)
         );
         AlumnosLayout.setVerticalGroup(
             AlumnosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 271, Short.MAX_VALUE)
+            .addGap(0, 484, Short.MAX_VALUE)
         );
 
         jMenuBar1.setBackground(new java.awt.Color(204, 204, 204));
@@ -110,22 +110,24 @@ public class VistaPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(Alumnos)
-                .addContainerGap())
+            .addComponent(Alumnos)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(Alumnos)
-                .addContainerGap())
+            .addComponent(Alumnos)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        // TODO add your handling code here:
+        VistaInscripciones vistaIns = new VistaInscripciones(); 
+        Alumnos.removeAll();
+        Alumnos.repaint();
+        vistaIns.setVisible(true);
+        Alumnos.add(vistaIns);
+        Alumnos.moveToFront(vistaIns);
+       
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     /**
