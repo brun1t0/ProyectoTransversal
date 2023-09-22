@@ -110,17 +110,17 @@ private Connection con = null;
     }
 
     public List<Materia> obtenerMateriasCursadas(int id) {
-        List<Materia> listaMateriasCursadas = new ArrayList<>();
-        MateriaData materiadata = new MateriaData();
+        List<Materia> listaMateriasCursadas = new ArrayList<Materia>();
+        
 
-        String sql = "SELECT `idMateria` FROM `inscripcion` WHERE idAlumno =" + id;
+        String sql = "SELECT inscripcion.idMateria, nombre, año FROM inscripcion, materia WHERE inscripcion.idMateria = materia.idMateria AND inscripcion.idAlumno =" + id;
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
-
+            Materia materia;
             while (rs.next()) {
-                Materia mat = materiadata.buscarMateria(rs.getInt(1));
-                listaMateriasCursadas.add(mat);
+                materia = new Materia(rs.getInt(1), rs.getString(2), rs.getInt(3), true);   
+                listaMateriasCursadas.add(materia);
             }
 
             ps.close();
@@ -132,36 +132,45 @@ private Connection con = null;
     }
     
     public List<Materia> obtenerMateriasNoCursadas(int id){
-    List<Materia> listaMateriasNoCursadas= new ArrayList<>();
-    MateriaData materiadata = new MateriaData();   
+    List<Materia> listaMateriasNoCursadas= new ArrayList<Materia>();
+     
     
-    String sql = "SELECT idMateria FROM inscripcion WHERE idMateria NOT IN (SELECT idMateria FROM inscripcion" +"WHERE idAlumno = "+id+")";
+    String sql = "SELECT * FROM materia \n" +
+                 "WHERE materia.estado = 1 \n" +
+                 "AND idMateria NOT IN (SELECT idMateria FROM inscripcion WHERE inscripcion.idAlumno = "+id+")";
         
     try {
-        PreparedStatement ps = con.prepareStatement(sql);
-        ResultSet rs = ps.executeQuery();
-        
-        while(rs.next()){
-        Materia mat = materiadata.buscarMateria(rs.getInt(1));
-        listaMateriasNoCursadas.add(mat);
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            Materia materia;
+            while (rs.next()) {
+   
+                materia = new Materia(rs.getInt(1), rs.getString(2), rs.getInt(3), true);
+                listaMateriasNoCursadas.add(materia);
+            }
+
+            ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Ha ocurrido un error al enviar la sentencia: " + ex.getMessage());
         }
-        
-        ps.close();
-    } catch (SQLException ex) {
-          JOptionPane.showMessageDialog(null, "Ha ocurrido un error al enviar la sentencia: " + ex.getMessage());
-    }
-    
+
         return listaMateriasNoCursadas;
     }
     
     
     public void borrarInscripcionMateriaAlumno(int idAlumno, int idMateria){
-    AlumnoData alumnodata = new AlumnoData();
-    MateriaData materiadata = new MateriaData();
+    String sql = "DELETE FROM `inscripcion` WHERE idAlumno = "+ idAlumno +"  AND idMateria = "+ idMateria;
     
-    alumnodata.eleminarAlumno(idAlumno);
-    materiadata.eliminarMateria(idMateria);
     
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.executeUpdate();
+            
+            ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al enviar la sentencia: " + ex.getMessage());
+        }
+
     }
     
     public void actualizarNota(int idAlumno, int idMateria, double nota){
