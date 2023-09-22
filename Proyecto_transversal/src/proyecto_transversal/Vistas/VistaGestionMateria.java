@@ -14,7 +14,7 @@ public class VistaGestionMateria extends javax.swing.JInternalFrame {
      */
     public VistaGestionMateria() {
         initComponents();
-        System.out.println("holaa");
+        System.out.println("holaaa");
     }
     
 
