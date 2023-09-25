@@ -95,6 +95,11 @@ public class VistaPrincipal extends javax.swing.JFrame {
         jMenu4.setText("Consultas");
 
         jMenuItem5.setText("Alumnos por Materia");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
         jMenu4.add(jMenuItem5);
 
         jMenuBar1.add(jMenu4);
@@ -129,6 +134,15 @@ public class VistaPrincipal extends javax.swing.JFrame {
         Alumnos.moveToFront(vistaIns);
        
     }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+    VistaConsultaAlumnosPorMateria consultaAlumsMateria = new VistaConsultaAlumnosPorMateria();
+    Alumnos.removeAll();
+    Alumnos.repaint();
+    consultaAlumsMateria.setVisible(true);
+    Alumnos.add(consultaAlumsMateria);
+    Alumnos.moveToFront(consultaAlumsMateria);
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     /**
      * @param args the command line arguments
