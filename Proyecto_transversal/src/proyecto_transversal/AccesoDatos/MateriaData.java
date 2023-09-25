@@ -56,8 +56,6 @@ public class MateriaData {
             ResultSet rs = ps.executeQuery();
             if(rs.next()){
                 materia = new Materia(id, rs.getString("nombre"),rs.getInt("año"), rs.getBoolean("estado"));
-            }else {
-                JOptionPane.showMessageDialog(null, "No existe materia con este id");
             }
             
             ps.close();
