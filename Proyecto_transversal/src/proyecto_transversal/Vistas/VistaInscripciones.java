@@ -255,6 +255,8 @@ public class VistaInscripciones extends javax.swing.JInternalFrame {
 
         } catch (ArrayIndexOutOfBoundsException aibe) {
             JOptionPane.showMessageDialog(null, "¡Debes escoger almenos una materia!");
+        }catch(NullPointerException np ){
+            JOptionPane.showMessageDialog(this, "La tabla está vacía. Debe ingresar almenos una materia");
         }
     }//GEN-LAST:event_bAnularInscripcionActionPerformed
 
@@ -282,6 +284,8 @@ public class VistaInscripciones extends javax.swing.JInternalFrame {
             actualizarMateriasNoInscriptas();
         } catch (ArrayIndexOutOfBoundsException aibe) {
             JOptionPane.showMessageDialog(null, "¡Debes escoger almenos una materia!");
+        }catch(NullPointerException np ){
+            JOptionPane.showMessageDialog(this, "La tabla está vacía. Debe ingresar almenos una materia");
         }
     }//GEN-LAST:event_bInscribirActionPerformed
 
@@ -350,6 +354,7 @@ public class VistaInscripciones extends javax.swing.JInternalFrame {
     }
 
     public void actualizarMateriasNoInscriptas() {
+        try{
         Alumno alum = (Alumno) cbAlumnos.getSelectedItem();
 
         for (Materia listarMateria : inscripciondata.obtenerMateriasNoCursadas(alum.getIdalumno())) {
@@ -362,9 +367,13 @@ public class VistaInscripciones extends javax.swing.JInternalFrame {
 
             rowCount.setText(modeloTabla.getRowCount() + "");
         }
+        }catch(NullPointerException np){
+        JOptionPane.showMessageDialog(this, "Debe ingresar almenos un alumno/materia en la base de datos.");
+        }
     }
 
     public void actualizarMateriasInscriptas() {
+       try{
         Alumno alum = (Alumno) cbAlumnos.getSelectedItem();
 
         for (Materia listarMateria : inscripciondata.obtenerMateriasCursadas(alum.getIdalumno())) {
@@ -376,5 +385,8 @@ public class VistaInscripciones extends javax.swing.JInternalFrame {
             modeloTabla.addRow(new Object[]{ID, nombre, anio});
             
         }
+    }catch(NullPointerException np ){
+    JOptionPane.showMessageDialog(this, "Debe ingresar almenos un alumno/materia en la base de datos.");
+}
     }
 }

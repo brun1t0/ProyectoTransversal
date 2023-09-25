@@ -1,5 +1,6 @@
 package proyecto_transversal.Vistas;
 
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import proyecto_transversal.AccesoDatos.InscripcionData;
 import proyecto_transversal.AccesoDatos.MateriaData;
@@ -213,17 +214,19 @@ public class VistaConsultaAlumnosPorMateria extends javax.swing.JInternalFrame {
     }
 
     public void mostrarMateriaSeleccionada() {
-       
-       // if (modeloTabla.getRowCount() >= 0) {
+       try{
+        
             for (int i = modeloTabla.getRowCount() - 1; i >= 0; i--) {
                 modeloTabla.removeRow(i);
             }
-      //  }
+        
             Materia mat = selectorMateria.getItemAt(selectorMateria.getSelectedIndex());
             int id = mat.getIdMateria();
             for (Alumno alumno : insc.obtenerAlumnosXMateria(id)) {
                 modeloTabla.addRow(new Object[]{alumno.getIdalumno(), alumno.getDni(), alumno.getApellido(), alumno.getNombre()});
             }
-        
+       }catch(NullPointerException np ){
+            JOptionPane.showMessageDialog(this, "Debe ingresar almenos un alumno/materia en la base de datos.");
+        }
     }
 }
