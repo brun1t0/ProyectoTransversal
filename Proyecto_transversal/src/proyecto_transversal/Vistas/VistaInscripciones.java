@@ -29,7 +29,7 @@ public class VistaInscripciones extends javax.swing.JInternalFrame {
     private int botonSeleccionado = 0;
 
     public VistaInscripciones() {
-
+        
         initComponents();
         for (Alumno listarAlumno : alumnosdata.listarAlumnos()) {
             cbAlumnos.addItem(listarAlumno);
@@ -38,7 +38,7 @@ public class VistaInscripciones extends javax.swing.JInternalFrame {
         rowCount.setText(modeloTabla.getRowCount() + "");
         bInscribir.setEnabled(false);
         bAnularInscripcion.setEnabled(false);
-
+      
     }
 
     /**
@@ -372,9 +372,9 @@ public class VistaInscripciones extends javax.swing.JInternalFrame {
             int ID = listarMateria.getIdMateria();
             String nombre = listarMateria.getNombre();
             int anio = listarMateria.getAnioMateria();
-
+            
             modeloTabla.addRow(new Object[]{ID, nombre, anio});
-
+            
         }
     }
 }

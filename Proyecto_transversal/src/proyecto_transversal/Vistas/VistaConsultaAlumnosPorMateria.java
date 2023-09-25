@@ -1,16 +1,34 @@
 package proyecto_transversal.Vistas;
 
+import javax.swing.table.DefaultTableModel;
+import proyecto_transversal.AccesoDatos.InscripcionData;
+import proyecto_transversal.AccesoDatos.MateriaData;
+import proyecto_transversal.Entidades.Alumno;
+import proyecto_transversal.Entidades.Materia;
+
 /**
  *
  * @author Lucas
  */
 public class VistaConsultaAlumnosPorMateria extends javax.swing.JInternalFrame {
-
+    private MateriaData matData = new MateriaData();
+    private InscripcionData insc = new InscripcionData();
+    private DefaultTableModel modeloTabla = new DefaultTableModel() {
+        @Override
+        public boolean isCellEditable(int i, int i1) {
+            return false;
+        }
+    };
     /**
      * Creates new form vistaMenuAlumno
      */
     public VistaConsultaAlumnosPorMateria() {
         initComponents();
+        
+        for (Materia listarMateria : matData.listarMaterias()) {
+        selectorMateria.addItem(listarMateria);
+        }
+        crearModeloTabla();
     }
     
 
@@ -51,7 +69,11 @@ public class VistaConsultaAlumnosPorMateria extends javax.swing.JInternalFrame {
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Seleccione una materia");
 
-        selectorMateria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        selectorMateria.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                selectorMateriaItemStateChanged(evt);
+            }
+        });
         selectorMateria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 selectorMateriaActionPerformed(evt);
@@ -80,6 +102,11 @@ public class VistaConsultaAlumnosPorMateria extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(tablaMaterias);
 
         btnSalir.setText("Salir");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_transversal/Vistas/logoULP.png"))); // NOI18N
 
@@ -126,7 +153,7 @@ public class VistaConsultaAlumnosPorMateria extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(selectorMateria, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE))
+                    .addComponent(selectorMateria, javax.swing.GroupLayout.PREFERRED_SIZE, 40, Short.MAX_VALUE))
                 .addGap(35, 35, 35)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
@@ -138,19 +165,29 @@ public class VistaConsultaAlumnosPorMateria extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 778, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 762, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 558, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 526, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void selectorMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectorMateriaActionPerformed
-        // TODO add your handling code here:
+        mostrarMateriaSeleccionada();
     }//GEN-LAST:event_selectorMateriaActionPerformed
+
+    private void selectorMateriaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_selectorMateriaItemStateChanged
+    
+    }//GEN-LAST:event_selectorMateriaItemStateChanged
+
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        removeAll();
+        repaint();
+        setVisible(false);
+    }//GEN-LAST:event_btnSalirActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -160,8 +197,33 @@ public class VistaConsultaAlumnosPorMateria extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JComboBox<String> selectorMateria;
+    private javax.swing.JComboBox<Materia> selectorMateria;
     private javax.swing.JTable tablaMaterias;
     private javax.swing.JLabel tituloPrincipal;
     // End of variables declaration//GEN-END:variables
+
+        public void crearModeloTabla() {
+        tablaMaterias.setModel(modeloTabla);
+        modeloTabla.addColumn("ID");
+        modeloTabla.addColumn("DNI");
+        modeloTabla.addColumn("Apellido");
+        modeloTabla.addColumn("Nombre");
+
+        mostrarMateriaSeleccionada();
+    }
+
+    public void mostrarMateriaSeleccionada() {
+       
+       // if (modeloTabla.getRowCount() >= 0) {
+            for (int i = modeloTabla.getRowCount() - 1; i >= 0; i--) {
+                modeloTabla.removeRow(i);
+            }
+      //  }
+            Materia mat = selectorMateria.getItemAt(selectorMateria.getSelectedIndex());
+            int id = mat.getIdMateria();
+            for (Alumno alumno : insc.obtenerAlumnosXMateria(id)) {
+                modeloTabla.addRow(new Object[]{alumno.getIdalumno(), alumno.getDni(), alumno.getApellido(), alumno.getNombre()});
+            }
+        
+    }
 }
