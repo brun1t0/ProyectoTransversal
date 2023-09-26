@@ -177,7 +177,7 @@ public class VistaConsultaAlumnosPorMateria extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void selectorMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectorMateriaActionPerformed
-        mostrarMateriaSeleccionada();
+       mostrarMateriaSeleccionada();
     }//GEN-LAST:event_selectorMateriaActionPerformed
 
     private void selectorMateriaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_selectorMateriaItemStateChanged
