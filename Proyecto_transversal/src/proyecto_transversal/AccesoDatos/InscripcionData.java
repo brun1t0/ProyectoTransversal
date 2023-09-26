@@ -159,7 +159,7 @@ private Connection con = null;
     AlumnoData alumnodata = new AlumnoData();
     MateriaData materiadata = new MateriaData();
     
-    alumnodata.eleminarAlumno(idAlumno);
+    alumnodata.eliminarAlumno(idAlumno);
     materiadata.eliminarMateria(idMateria);
     
     }
