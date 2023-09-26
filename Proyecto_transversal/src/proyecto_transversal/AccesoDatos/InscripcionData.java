@@ -18,6 +18,8 @@ import proyecto_transversal.Entidades.Materia;
  */
 public class InscripcionData {
 private Connection con = null;
+private AlumnoData alumnodata = new AlumnoData();
+private MateriaData materiadata = new MateriaData();
     public InscripcionData() {
         con = Conexion.getConexion();
     }
@@ -161,6 +163,11 @@ private Connection con = null;
     public void borrarInscripcionMateriaAlumno(int idAlumno, int idMateria){
     String sql = "DELETE FROM `inscripcion` WHERE idAlumno = "+ idAlumno +"  AND idMateria = "+ idMateria;
     
+
+
+    alumnodata.eliminarAlumno(idAlumno);
+    materiadata.eliminarMateria(idMateria);
+
     
         try {
             PreparedStatement ps = con.prepareStatement(sql);
