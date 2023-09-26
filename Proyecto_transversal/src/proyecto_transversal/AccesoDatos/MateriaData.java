@@ -23,7 +23,7 @@ public class MateriaData {
     }
     
     public void guardarMateria(Materia materia){
-        String sql = "INSER INTO materia (nombre, año, estado)" 
+        String sql = "INSERT INTO materia (nombre, año, estado)" 
                 + "VALUES (" + materia.getNombre()+", "+ materia.getAnioMateria()+", "+materia.isEstado()+")";
         
         try{

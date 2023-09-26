@@ -10,6 +10,7 @@ import proyecto_transversal.Entidades.Materia;
  */
 public class VistaGestionMateria extends javax.swing.JInternalFrame {
 
+    private MateriaData matData = new MateriaData();
     /**
      * Creates new form vistaMenuAlumno
      */
@@ -165,7 +166,7 @@ public class VistaGestionMateria extends javax.swing.JInternalFrame {
 
     private void jBBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarActionPerformed
       try{
-          MateriaData matData = new MateriaData();
+       
           Integer codigo = Integer.parseInt(jTCodigo.getText());
           Materia mat = matData.buscarMateria(codigo);
           jTNombre.setText(mat.getNombre());
@@ -183,7 +184,16 @@ public class VistaGestionMateria extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jBBuscarActionPerformed
 
     private void jBGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarActionPerformed
-        // TODO add your handling code here:
+       // int idMateria = Integer.parseInt(jTCodigo.getText());
+        String nombre = jTNombre.getText();
+        int anio=  Integer.parseInt(jTAnio.getText());
+        boolean estado = jRBEstado.isEnabled();
+        Materia Mat = new Materia(nombre, anio, estado);
+        System.out.println(Mat.toString());
+        
+        matData.guardarMateria(Mat);
+        
+        
     }//GEN-LAST:event_jBGuardarActionPerformed
 
 
