@@ -189,7 +189,6 @@ public class VistaGestionMateria extends javax.swing.JInternalFrame {
         int anio=  Integer.parseInt(jTAnio.getText());
         boolean estado = jRBEstado.isEnabled();
         Materia Mat = new Materia(nombre, anio, estado);
-        System.out.println(Mat.toString());
         
         matData.guardarMateria(Mat);
         
