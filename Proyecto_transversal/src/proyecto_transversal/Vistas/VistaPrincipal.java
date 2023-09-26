@@ -15,8 +15,8 @@ public class VistaPrincipal extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMGestionAlumnos = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenu5 = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
@@ -54,24 +54,17 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setBackground(new java.awt.Color(204, 204, 204));
-        jMenu2.setForeground(new java.awt.Color(0, 0, 0));
-        jMenu2.setText("Materia");
-        jMenu2.addActionListener(new java.awt.event.ActionListener() {
+        jMenu5.setText("Materia");
+
+        jMenuItem2.setText("Formulario de Materia");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu2ActionPerformed(evt);
+                jMenuItem2ActionPerformed(evt);
             }
         });
+        jMenu5.add(jMenuItem2);
 
-        jMenuItem1.setText("Formulario de Materia");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
-            }
-        });
-        jMenu2.add(jMenuItem1);
-
-        jMenuBar1.add(jMenu2);
+        jMenuBar1.add(jMenu5);
 
         jMenu3.setBackground(new java.awt.Color(204, 204, 204));
         jMenu3.setForeground(new java.awt.Color(0, 0, 0));
@@ -142,16 +135,6 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
 
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-       
-        VistaGestionMateria vistaMateria = new VistaGestionMateria();
-       Alumnos.removeAll();
-       Alumnos.repaint();
-       vistaMateria.setVisible(true);
-       Alumnos.add(vistaMateria);
-       Alumnos.moveToFront(vistaMateria);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
-
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
     VistaConsultaAlumnosPorMateria consultaAlumsMateria = new VistaConsultaAlumnosPorMateria();
     Alumnos.removeAll();
@@ -178,6 +161,17 @@ public class VistaPrincipal extends javax.swing.JFrame {
         Alumnos.add(pr);
         Alumnos.moveToFront(pr);
     }//GEN-LAST:event_jMGestionAlumnosActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+       Alumnos.removeAll();
+        Alumnos.repaint();
+        
+        
+        VistaGestionMateria vgm = new VistaGestionMateria();
+        vgm.setVisible(true);
+        Alumnos.add(vgm);
+        Alumnos.moveToFront(vgm);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
 
     /**
@@ -222,12 +216,12 @@ public class VistaPrincipal extends javax.swing.JFrame {
     private javax.swing.JDesktopPane Alumnos;
     private javax.swing.JMenuItem jMGestionAlumnos;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu8;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;

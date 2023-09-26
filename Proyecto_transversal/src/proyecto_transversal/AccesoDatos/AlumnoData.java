@@ -173,8 +173,6 @@ public class AlumnoData {
     public void eliminarAlumno(int id){
         try{
             String sql = "UPDATE alumno SET estado = 0 WHERE idAlumno =?";
-
-            
             PreparedStatement ps = con.prepareStatement(sql);
             
             ps.setInt(1, id);
@@ -194,7 +192,7 @@ public class AlumnoData {
                 //JOptionPane.showMessageDialog(null,"Se elimino el alumnocon ID: "+id);
             //} else {
             //JOptionPane.showMessageDialog(null, "No se encontró un alumno con el ID proporcionado.");
-        }
+        
 
         
         } catch(SQLException e) {
