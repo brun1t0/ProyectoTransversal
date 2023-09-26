@@ -62,7 +62,7 @@ public class VistaCargaDeNotas extends javax.swing.JInternalFrame {
 
         jSeparator2.setBackground(new java.awt.Color(204, 204, 204));
 
-        logoULP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_transversal/Recursos/logoULP.png"))); // NOI18N
+        logoULP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_transversal/Recursos/img/logoULP.png"))); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));

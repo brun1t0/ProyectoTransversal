@@ -166,7 +166,7 @@ public class VistaInscripciones extends javax.swing.JInternalFrame {
 
         jSeparator2.setBackground(new java.awt.Color(204, 204, 204));
 
-        logoULP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_transversal/Recursos/logoULP.png"))); // NOI18N
+        logoULP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_transversal/Recursos/img/logoULP.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
