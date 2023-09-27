@@ -115,8 +115,8 @@ public class AlumnoData {
                  
             } ps.close();
 
-                  JOptionPane.showMessageDialog(null,"No existe el alumno(BuscarAlumnoporDNI");
-                  ps.close();
+                  //JOptionPane.showMessageDialog(null,"No existe el alumno(BuscarAlumnoporDNI");
+                  //ps.close();
             
 
         } catch (SQLException ex) {
@@ -148,7 +148,7 @@ public class AlumnoData {
         
     }
     public void modificarAlumno (Alumno alumno){
-        String sql ="UPDATE alumno SET dni = ?, apellido = ?, nombre = ?, fechaNac = ? WHERE IdAlumno =?";
+        String sql ="UPDATE alumno SET dni = ?, apellido = ?, nombre = ?, fechaNacimiento = ? WHERE IdAlumno =?";
         PreparedStatement ps = null;
         try{
             ps = con.prepareStatement(sql);
