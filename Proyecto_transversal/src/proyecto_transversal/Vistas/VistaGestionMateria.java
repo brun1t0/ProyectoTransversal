@@ -11,7 +11,7 @@ import proyecto_transversal.Entidades.Materia;
 public class VistaGestionMateria extends javax.swing.JInternalFrame {
 
     private MateriaData matData = new MateriaData();
-    private Materia mat = new Materia();
+
     /**
      * Creates new form vistaMenuAlumno
      */
@@ -201,14 +201,21 @@ public class VistaGestionMateria extends javax.swing.JInternalFrame {
 
     private void jBGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarActionPerformed
        // int idMateria = Integer.parseInt(jTCodigo.getText());
-        String nombre = jTNombre.getText();
-        int anio=  Integer.parseInt(jTAnio.getText());
-        boolean estado = jRBEstado.isEnabled();
-        Materia Mat = new Materia(nombre, anio, estado);
-        
-        matData.guardarMateria(Mat);
-        
-        
+      
+        try {
+            int codigo = Integer.parseInt(jTCodigo.getText());
+
+            if (matData.existeMateria(codigo) == true) {
+                modificar();
+            } else {
+                guardar();
+            }
+        } catch (NumberFormatException nf) {
+            guardar();
+
+        }
+
+
     }//GEN-LAST:event_jBGuardarActionPerformed
 
     private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
@@ -217,17 +224,19 @@ public class VistaGestionMateria extends javax.swing.JInternalFrame {
 
     private void jBNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBNuevoActionPerformed
         limpiarCampos();
-        mat=null;
+        
     }//GEN-LAST:event_jBNuevoActionPerformed
 
     private void jBEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEliminarActionPerformed
-        if(mat!=null){
-            matData.eliminarMateria(mat.getIdMateria());
-            mat=null;
+            try{
+            int codigo = Integer.parseInt(jTCodigo.getText());
+       
+            matData.eliminarMateria(codigo);
+           
             limpiarCampos();
-        }else{
-             JOptionPane.showMessageDialog(this, "No hay materia para eliminar");
-        }
+            }catch(NumberFormatException nf){
+            JOptionPane.showMessageDialog(this, "No hay materia para eliminar");
+            }
     }//GEN-LAST:event_jBEliminarActionPerformed
 
     private void limpiarCampos(){
@@ -255,4 +264,29 @@ public class VistaGestionMateria extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTCodigo;
     private javax.swing.JTextField jTNombre;
     // End of variables declaration//GEN-END:variables
+
+    public void guardar() {
+        
+        try{
+        String nombre = jTNombre.getText();
+        int anio = Integer.parseInt(jTAnio.getText());
+        boolean estado = jRBEstado.isEnabled();
+        Materia Mat = new Materia(nombre, anio, estado);
+
+        matData.guardarMateria(Mat);
+        }catch(NumberFormatException nf){
+        JOptionPane.showMessageDialog(this, "La materia no es válida.");
+        }
+    }
+
+    public void modificar() {
+        
+        
+        String nombre = jTNombre.getText();
+        int anio = Integer.parseInt(jTAnio.getText());
+        boolean estado = jRBEstado.isEnabled();
+        int id = Integer.parseInt(jTCodigo.getText());
+        Materia Mat = new Materia(id, nombre, anio, estado);
+        matData.modificarMateria(Mat);
+    }
 }

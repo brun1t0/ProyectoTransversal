@@ -72,13 +72,13 @@ public class MateriaData {
         
         try{
             ps = con.prepareStatement(sql);
-            ps.setInt(1, materia.getIdMateria());
-            ps.setString(2, materia.getNombre());
-            ps.setInt(3, materia.getAnioMateria());
-            ps.setBoolean(4, materia.isEstado());
+            ps.setString(1, materia.getNombre());
+            ps.setInt(2, materia.getAnioMateria());
+            ps.setBoolean(3, materia.isEstado());
+            ps.setInt(4, materia.getIdMateria());
             int exito = ps.executeUpdate();
             
-            if(exito == 1){
+            if(exito > 0){
                  JOptionPane.showMessageDialog(null, "Modificado exitosamente.");
             }else{
                  JOptionPane.showMessageDialog(null, "La materia no existe");
@@ -128,5 +128,31 @@ public class MateriaData {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla materia"+ ex.getMessage());
         }
         return materias;
+    }
+    
+    public boolean existeMateria(int id){
+    
+        
+        
+        try {
+            String sql = "SELECT `idMateria`FROM `materia` WHERE idMateria =" + id;
+            
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            
+            if (rs.next()) {
+                return true;
+            } else {
+                return false;
+            }
+                
+                
+        } catch (SQLException ex) {
+          JOptionPane.showMessageDialog(null, "Error al enviar la sentencia"+ ex.getMessage());
+        return false;
+        }catch(NumberFormatException nf){
+        return false;
+        }
+        
     }
 }
