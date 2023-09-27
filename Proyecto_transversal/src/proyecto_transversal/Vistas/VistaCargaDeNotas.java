@@ -1,7 +1,10 @@
 package proyecto_transversal.Vistas;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import java.lang.Object;
 import proyecto_transversal.AccesoDatos.AlumnoData;
 import proyecto_transversal.AccesoDatos.InscripcionData;
 import proyecto_transversal.AccesoDatos.MateriaData;
@@ -17,18 +20,18 @@ public class VistaCargaDeNotas extends javax.swing.JInternalFrame {
     private MateriaData matData = new MateriaData();
     private AlumnoData aluData = new AlumnoData();
     private InscripcionData inscData = new InscripcionData();
+    private ArrayList<Materia> listaM;
+    private ArrayList<Alumno> listaA;
     private DefaultTableModel modeloTabla = new DefaultTableModel() {
         @Override
         public boolean isCellEditable(int i, int i1) {
-            return false;
+            return i1==2;
         }
     };
     public VistaCargaDeNotas() {
         initComponents();
-        
-        for (Alumno listarAlumnos : aluData.listarAlumnos()) {
-        cboSelectorAlumno.addItem(listarAlumnos);
-        }
+        llenarCombo();
+        cargarTabla();
         crearModeloTabla();
     }
     
@@ -100,6 +103,7 @@ public class VistaCargaDeNotas extends javax.swing.JInternalFrame {
         });
         tbNotas.setViewportView(tablaNotas);
 
+        btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_transversal/Recursos/img/guardarIcono.png"))); // NOI18N
         btnGuardar.setText("Guardar");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -107,6 +111,7 @@ public class VistaCargaDeNotas extends javax.swing.JInternalFrame {
             }
         });
 
+        btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_transversal/Recursos/img/cerrarIcono.png"))); // NOI18N
         btnSalir.setText("Salir");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -186,80 +191,81 @@ public class VistaCargaDeNotas extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_cboSelectorAlumnoActionPerformed
 
-    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnGuardarActionPerformed
-
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-
-        removeAll();
-        repaint();
+        cerrarVentana();
         setVisible(false);    }//GEN-LAST:event_btnSalirActionPerformed
 
     private void cboSelectorAlumnoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cboSelectorAlumnoItemStateChanged
         limpiarTabla();
-//        mostrarMateriaSeleccionada();
-//        cargarTabla();        // TODO add your handling code here:
+        cargarTabla();
     
     }//GEN-LAST:event_cboSelectorAlumnoItemStateChanged
 
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+       guardarNota();
+    }//GEN-LAST:event_btnGuardarActionPerformed
+
     
     //Metodos
+    
+    public void cerrarVentana(){
+     removeAll();
+        repaint();
+        setVisible(false);   
+    }      
+    
+    public void llenarCombo(){
+    for (Alumno listarAlumnos : aluData.listarAlumnos()) {
+        cboSelectorAlumno.addItem(listarAlumnos);
+        }
+    }
     
     public void crearModeloTabla() {
         tablaNotas.setModel(modeloTabla);
         modeloTabla.addColumn("Codigo");
         modeloTabla.addColumn("Nombre");
-        modeloTabla.addColumn("Nota");
-    
-//        mostrarMateriaSeleccionada();
-
+        modeloTabla.addColumn("Nota");   
+        cargarTabla();
     }
-
-//    public void mostrarMateriaSeleccionada() {
-//       
-//       
-//        Alumno alu = (Alumno) cboSelectorAlumno.getSelectedItem();
-//
-//        for (Materia listarMateria : inscData.obtenerMateriasCursadas(alu.getIdalumno())) {
-//
-//            int ID = listarMateria.getIdMateria();
-//            String nombre = listarMateria.getNombre();
-//            int nota = listarMateria.();
-//            
-//            modeloTabla.addRow(new Object[]{ID, nombre, nota});       
-//        } 
-//    }
-    
-//    private void cargarTabla() {
-//        String[] alumno = cboSelectorAlumno.getSelectedItem().toString().split(", ");
-//        int dniAlumno = Integer.parseInt(alumno[0]);
-//
-//        limpiarTabla();
-//
-//        for (Inscripciones insc : inscData.obtenerInscripciones()) {
-//            if (insc.getAlumno().getDni()== dniAlumno) {
-//                modeloTabla.addRow(new Object[]{
-//                    insc.getMateria().getIdMateria(),
-//                    insc.getMateria().getNombre(),
-//                    insc.getNota()
-//                });
-//            }
-//
-//        }
-//    }
-    
-
-
     
     
     public void limpiarTabla() {
-
-
         for (int i = modeloTabla.getRowCount() - 1; i >= 0; i--) {
             modeloTabla.removeRow(i);
         }
     }
+    
+
+public void cargarTabla() {
+    Alumno alu = (Alumno) cboSelectorAlumno.getSelectedItem();
+    int fila = 0;
+    
+    for (Materia listarMateria : inscData.obtenerMateriasCursadas(alu.getIdalumno())) {
+        int ID = listarMateria.getIdMateria();
+        String nombre = listarMateria.getNombre();
+        modeloTabla.addRow(new Object[]{ID, nombre, ""});
+    }
+    
+    for(Integer nota : inscData.obtenerNota(alu.getIdalumno())){
+    modeloTabla.setValueAt(nota, fila, 2);
+    
+    fila++;
+    }
+    }
+
+    public void guardarNota(){
+        Object columnaNota = tablaNotas.getValueAt(tablaNotas.getSelectedRow(), 2);
+        Double notaMat = (Double) columnaNota;
+        Object columnaId = tablaNotas.getValueAt(tablaNotas.getSelectedRow(), 2);
+        int idMat = (int) columnaId;
+        Object alumnoSeleccionado = cboSelectorAlumno.getSelectedItem();
+        
+        
+        Alumno alu = (Alumno) alumnoSeleccionado;
+        System.out.println("nota"+ notaMat + "Alumno " + alu.toString() + "ID " + idMat);
+        inscData.actualizarNota(alu.getIdalumno(), idMat, notaMat);
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGuardar;
