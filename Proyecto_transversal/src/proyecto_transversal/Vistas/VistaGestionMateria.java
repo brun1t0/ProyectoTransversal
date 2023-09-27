@@ -11,6 +11,7 @@ import proyecto_transversal.Entidades.Materia;
 public class VistaGestionMateria extends javax.swing.JInternalFrame {
 
     private MateriaData matData = new MateriaData();
+    private Materia mat = new Materia();
     /**
      * Creates new form vistaMenuAlumno
      */
@@ -77,12 +78,27 @@ public class VistaGestionMateria extends javax.swing.JInternalFrame {
         jLabel5.setText("Estado");
 
         jBSalir.setText("Salir");
+        jBSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBSalirActionPerformed(evt);
+            }
+        });
 
         jBEliminar.setText("Eliminar");
+        jBEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBEliminarActionPerformed(evt);
+            }
+        });
 
         jRBEstado.setText("Estado");
 
         jBNuevo.setText("Nuevo");
+        jBNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBNuevoActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel2.setText("Codigo");
@@ -174,9 +190,9 @@ public class VistaGestionMateria extends javax.swing.JInternalFrame {
           jRBEstado.setSelected(true);
           
       } catch(NumberFormatException nf){
-          JOptionPane.showMessageDialog(null, "Código invalido");
+          JOptionPane.showMessageDialog(this, "Código invalido");
       } catch(NullPointerException np){
-            JOptionPane.showMessageDialog(null, "Texto vacio"+ np.getMessage());
+            JOptionPane.showMessageDialog(this, "Texto vacio"+ np.getMessage());
         }
        
        
@@ -195,6 +211,32 @@ public class VistaGestionMateria extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_jBGuardarActionPerformed
 
+    private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
+       dispose();
+    }//GEN-LAST:event_jBSalirActionPerformed
+
+    private void jBNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBNuevoActionPerformed
+        limpiarCampos();
+        mat=null;
+    }//GEN-LAST:event_jBNuevoActionPerformed
+
+    private void jBEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEliminarActionPerformed
+        if(mat!=null){
+            matData.eliminarMateria(mat.getIdMateria());
+            mat=null;
+            limpiarCampos();
+        }else{
+             JOptionPane.showMessageDialog(this, "No hay materia para eliminar");
+        }
+    }//GEN-LAST:event_jBEliminarActionPerformed
+
+    private void limpiarCampos(){
+    jTCodigo.setText("");
+    jTNombre.setText("");
+    jTAnio.setText("");
+    jRBEstado.setSelected(true);
+    
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBBuscar;
