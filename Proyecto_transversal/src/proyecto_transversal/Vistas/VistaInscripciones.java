@@ -379,39 +379,41 @@ public class VistaInscripciones extends javax.swing.JInternalFrame {
     }
 
     public void actualizarMateriasNoInscriptas() {
-        try{
-        Alumno alum = (Alumno) cbAlumnos.getSelectedItem();
+        try {
+            Alumno alum = (Alumno) cbAlumnos.getSelectedItem();
 
-        for (Materia listarMateria : inscripciondata.obtenerMateriasNoCursadas(alum.getIdalumno())) {
+            for (Materia listarMateria : inscripciondata.obtenerMateriasNoCursadas(alum.getIdalumno())) {
 
-            int ID = listarMateria.getIdMateria();
-            String nombre = listarMateria.getNombre();
-            int anio = listarMateria.getAnioMateria();
+                int ID = listarMateria.getIdMateria();
+                String nombre = listarMateria.getNombre();
+                int anio = listarMateria.getAnioMateria();
 
-            modeloTabla.addRow(new Object[]{ID, nombre, anio});
+                modeloTabla.addRow(new Object[]{ID, nombre, anio});
 
-            rowCount.setText(modeloTabla.getRowCount() + "");
-        }
-        }catch(NullPointerException np){
-        JOptionPane.showMessageDialog(this, "Debe ingresar almenos un alumno/materia en la base de datos.");
+                rowCount.setText(modeloTabla.getRowCount() + "");
+
+            }
+        } catch (NullPointerException np) {
+            JOptionPane.showMessageDialog(this, "Debe ingresar almenos un alumno/materia en la base de datos.");
         }
     }
 
     public void actualizarMateriasInscriptas() {
-       try{
-        Alumno alum = (Alumno) cbAlumnos.getSelectedItem();
+        try {
+            Alumno alum = (Alumno) cbAlumnos.getSelectedItem();
 
-        for (Materia listarMateria : inscripciondata.obtenerMateriasCursadas(alum.getIdalumno())) {
+            for (Materia listarMateria : inscripciondata.obtenerMateriasCursadas(alum.getIdalumno())) {
 
-            int ID = listarMateria.getIdMateria();
-            String nombre = listarMateria.getNombre();
-            int anio = listarMateria.getAnioMateria();
-            
-            modeloTabla.addRow(new Object[]{ID, nombre, anio});
-            
+                int ID = listarMateria.getIdMateria();
+                String nombre = listarMateria.getNombre();
+                int anio = listarMateria.getAnioMateria();
+
+                modeloTabla.addRow(new Object[]{ID, nombre, anio});
+
+            }
+        } catch (NullPointerException np) {
+            JOptionPane.showMessageDialog(this, "Debe ingresar almenos un alumno/materia en la base de datos.");
+
         }
-    }catch(NullPointerException np ){
-    JOptionPane.showMessageDialog(this, "Debe ingresar almenos un alumno/materia en la base de datos.");
-}
     }
 }

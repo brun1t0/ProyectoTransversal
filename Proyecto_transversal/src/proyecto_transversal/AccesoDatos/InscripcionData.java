@@ -103,11 +103,7 @@ private MateriaData materiadata = new MateriaData();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Ha ocurrido un error al enviar la sentencia: " + ex.getMessage());
         }
-        
-        
-        
-        
-        
+
     return listaInscripcionesPorAlumno;
     }
 
