@@ -1,5 +1,6 @@
 package proyecto_transversal.Vistas;
 
+import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -30,6 +31,7 @@ public class VistaCargaDeNotas extends javax.swing.JInternalFrame {
     };
     public VistaCargaDeNotas() {
         initComponents();
+        this.setMinimumSize(new Dimension(800, 600));
         llenarCombo();
         cargarTabla();
         crearModeloTabla();
