@@ -59,8 +59,8 @@ public class VistaCargaDeNotas extends javax.swing.JInternalFrame {
         jSeparator5 = new javax.swing.JSeparator();
         logoULP3 = new javax.swing.JLabel();
         Botonera = new javax.swing.JPanel();
-        btnGuardar = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
+        btnGuardar1 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(51, 255, 51));
         setPreferredSize(new java.awt.Dimension(780, 580));
@@ -147,14 +147,6 @@ public class VistaCargaDeNotas extends javax.swing.JInternalFrame {
 
         Botonera.setBackground(new java.awt.Color(74, 166, 134));
 
-        btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_transversal/Recursos/img/guardarIcono.png"))); // NOI18N
-        btnGuardar.setText("Guardar");
-        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGuardarActionPerformed(evt);
-            }
-        });
-
         btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_transversal/Recursos/img/cerrarIcono.png"))); // NOI18N
         btnSalir.setText("Salir");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -163,15 +155,23 @@ public class VistaCargaDeNotas extends javax.swing.JInternalFrame {
             }
         });
 
+        btnGuardar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_transversal/Recursos/img/guardarIcono.png"))); // NOI18N
+        btnGuardar1.setText("Guardar");
+        btnGuardar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardar1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout BotoneraLayout = new javax.swing.GroupLayout(Botonera);
         Botonera.setLayout(BotoneraLayout);
         BotoneraLayout.setHorizontalGroup(
             BotoneraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(BotoneraLayout.createSequentialGroup()
-                .addGap(116, 116, 116)
-                .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(214, 214, 214)
-                .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(87, 87, 87)
+                .addComponent(btnGuardar1)
+                .addGap(197, 197, 197)
+                .addComponent(btnSalir)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         BotoneraLayout.setVerticalGroup(
@@ -179,9 +179,9 @@ public class VistaCargaDeNotas extends javax.swing.JInternalFrame {
             .addGroup(BotoneraLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(BotoneraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                    .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnGuardar1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(135, 135, 135))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -223,13 +223,11 @@ public class VistaCargaDeNotas extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 762, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 784, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 526, Short.MAX_VALUE)
-
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 684, Short.MAX_VALUE)
         );
 
         pack();
@@ -239,30 +237,30 @@ public class VistaCargaDeNotas extends javax.swing.JInternalFrame {
         cerrarVentana();
     }//GEN-LAST:event_btnSalirActionPerformed
 
-    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        guardarNota();
-    }//GEN-LAST:event_btnGuardarActionPerformed
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {                                           
+        
+    }                                          
 
     private void cboSelectorAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboSelectorAlumnoActionPerformed
 
     }//GEN-LAST:event_cboSelectorAlumnoActionPerformed
 
-    private void cboSelectorAlumnoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cboSelectorAlumnoItemStateChanged
+    private void btnGuardar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardar1ActionPerformed
+        try{
+        guardarNota();
+        }catch(NumberFormatException nf){
+        JOptionPane.showMessageDialog(this, "No se ha podido guardar la nota.");
+        }
+    }//GEN-LAST:event_btnGuardar1ActionPerformed
+
+    
+
+    private void cboSelectorAlumnoItemStateChanged(java.awt.event.ItemEvent evt) {                                                   
         limpiarTabla();
         cargarTabla();
 
 
-    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-       
-
-        try{           
-        guardarNota();
-       }catch(NumberFormatException nf){JOptionPane.showMessageDialog(this, "La nota ingresada no es válida.");}
-    }//GEN-LAST:event_btnGuardarActionPerformed
-
-
-    
-    //Metodos
+    }
     
     public void cerrarVentana(){
      removeAll();
@@ -302,7 +300,7 @@ public void cargarTabla() {
         modeloTabla.addRow(new Object[]{ID, nombre, ""});
     }
     
-    for(Integer nota : inscData.obtenerNota(alu.getIdalumno())){
+    for(Double nota : inscData.obtenerNota(alu.getIdalumno())){
     modeloTabla.setValueAt(nota, fila, 2);
     
     fila++;
@@ -327,7 +325,7 @@ public void cargarTabla() {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Botonera;
     private javax.swing.JPanel Cabecera;
-    private javax.swing.JButton btnGuardar;
+    private javax.swing.JButton btnGuardar1;
     private javax.swing.JButton btnSalir;
     private javax.swing.JComboBox<Alumno> cboSelectorAlumno;
     private javax.swing.JLabel jLabel1;

@@ -62,11 +62,11 @@
                           </Group>
                           <EmptySpace min="-2" pref="88" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jTFDni" alignment="1" max="32767" attributes="0"/>
+                              <Component id="jTFDni" alignment="1" pref="236" max="32767" attributes="0"/>
                               <Component id="jTFApellido" alignment="1" max="32767" attributes="0"/>
                               <Component id="jTFNombre" alignment="1" max="32767" attributes="0"/>
                               <Component id="jRBEstado" alignment="1" max="32767" attributes="0"/>
-                              <Component id="jDCfechaNac" alignment="1" min="-2" pref="236" max="-2" attributes="0"/>
+                              <Component id="jDCfechaNac" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jBuscar" max="32767" attributes="0"/>
@@ -95,7 +95,7 @@
                           <Component id="jLabel6" min="-2" pref="35" max="-2" attributes="0"/>
                       </Group>
                       <Component id="jBuscar" alignment="0" min="-2" pref="35" max="-2" attributes="0"/>
-                      <Group type="102" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
                           <Component id="jTFDni" min="-2" pref="35" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                           <Component id="jTFApellido" min="-2" pref="35" max="-2" attributes="0"/>
@@ -103,16 +103,11 @@
                           <Component id="jTFNombre" min="-2" pref="35" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                           <Component id="jRBEstado" min="-2" pref="35" max="-2" attributes="0"/>
-
-                          <EmptySpace max="-2" attributes="0"/>
-                          
-
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jDCfechaNac" min="-2" pref="35" max="-2" attributes="0"/>
-
+                          <Component id="jDCfechaNac" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="109" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
                   <Component id="Botonera" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
               </Group>
@@ -270,8 +265,6 @@
             <Property name="text" type="java.lang.String" value="Documento"/>
           </Properties>
         </Component>
-        <Component class="com.toedter.calendar.JDateChooser" name="jDCfechaNac">
-        </Component>
         <Container class="javax.swing.JPanel" name="Botonera">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -359,6 +352,8 @@
             </Component>
           </SubComponents>
         </Container>
+        <Component class="com.toedter.calendar.JDateChooser" name="jDCfechaNac">
+        </Component>
       </SubComponents>
     </Container>
   </SubComponents>

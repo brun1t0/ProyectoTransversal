@@ -72,8 +72,7 @@ public class AlumnoData {
             System.out.println("Fecha de Nacimiento: " + alumno.getFechanac());
             System.out.println("Estado: " + alumno.isEstado());
          */   
-            }else{
-                  JOptionPane.showMessageDialog(null,"No existe el alumno");
+            
                  
             } ps.close();
         } catch (SQLException ex) {

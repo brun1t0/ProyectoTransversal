@@ -193,7 +193,9 @@ private MateriaData materiadata = new MateriaData();
     public List<Alumno> obtenerAlumnosXMateria(int idMateria){
     List<Alumno> listaAlumnosXMateria = new ArrayList<>();
     AlumnoData alumnodata = new AlumnoData();
-    String sql = "SELECT `idAlumno` FROM `inscripcion` WHERE idMateria =" + idMateria;   
+    String sql = "SELECT inscripcion.idAlumno "
+            + "FROM `inscripcion` JOIN alumno ON (inscripcion.idAlumno = alumno.idAlumno) "
+            + "WHERE idMateria = " + idMateria + " AND alumno.estado = 1";   
     try {
         
        
@@ -214,9 +216,9 @@ private MateriaData materiadata = new MateriaData();
     }
     
     
-    public List<Integer> obtenerNota(int idAlumno){
+    public List<Double> obtenerNota(int idAlumno){
     String sql = "SELECT `nota`FROM `inscripcion` WHERE idAlumno ="+ idAlumno;
-    List <Integer> notas = new ArrayList<>();
+    List <Double> notas = new ArrayList<>();
 
     try {
         PreparedStatement ps = con.prepareStatement(sql);
@@ -224,7 +226,7 @@ private MateriaData materiadata = new MateriaData();
         
         while (rs.next()){
         
-        notas.add(rs.getInt(1));
+        notas.add(rs.getDouble(1));
         }
         
        return notas; 
