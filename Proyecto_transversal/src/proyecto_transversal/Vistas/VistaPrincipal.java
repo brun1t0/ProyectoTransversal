@@ -8,6 +8,10 @@ public class VistaPrincipal extends javax.swing.JFrame {
     public VistaPrincipal() {
         initComponents();
         this.setMinimumSize(new Dimension(800, 600));
+        this.setSize(1024 ,768);
+        this.setLocationRelativeTo(null);
+        this.setTitle("Sistema de Gestion ULP");
+        this.setResizable(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -34,11 +38,11 @@ public class VistaPrincipal extends javax.swing.JFrame {
         jDesktopPane1.setLayout(jDesktopPane1Layout);
         jDesktopPane1Layout.setHorizontalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 753, Short.MAX_VALUE)
+            .addGap(0, 800, Short.MAX_VALUE)
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 476, Short.MAX_VALUE)
+            .addGap(0, 569, Short.MAX_VALUE)
         );
 
         Alumnos.setLayer(jDesktopPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -63,6 +67,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_transversal/Recursos/img/usuarioIcono.png"))); // NOI18N
         jMenu1.setText("Alumno");
 
+        jMGestionAlumnos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_transversal/Recursos/img/accederIcono.png"))); // NOI18N
         jMGestionAlumnos.setText("Formulario de Alumno");
         jMGestionAlumnos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -73,9 +78,12 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
+        jMenu5.setForeground(new java.awt.Color(0, 0, 0));
         jMenu5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_transversal/Recursos/img/libroIcono.png"))); // NOI18N
         jMenu5.setText("Materia");
+        jMenu5.setOpaque(false);
 
+        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_transversal/Recursos/img/accederIcono.png"))); // NOI18N
         jMenuItem2.setText("Formulario de Materia");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,6 +99,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
         jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_transversal/Recursos/img/administracionIcono.png"))); // NOI18N
         jMenu3.setText("Administación");
 
+        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_transversal/Recursos/img/accederIcono.png"))); // NOI18N
         jMenuItem3.setText("Manejo de Inscipciones");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -99,6 +108,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
         });
         jMenu3.add(jMenuItem3);
 
+        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_transversal/Recursos/img/accederIcono.png"))); // NOI18N
         jMenuItem4.setText("Manipulacion de Notas");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,6 +124,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
         jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_transversal/Recursos/img/consultasIcono.png"))); // NOI18N
         jMenu4.setText("Consultas");
 
+        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_transversal/Recursos/img/accederIcono.png"))); // NOI18N
         jMenuItem5.setText("Alumnos por Materia");
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -128,6 +139,11 @@ public class VistaPrincipal extends javax.swing.JFrame {
         jMenu8.setForeground(new java.awt.Color(0, 0, 0));
         jMenu8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_transversal/Recursos/img/cerrarIcono.png"))); // NOI18N
         jMenu8.setText("Salir");
+        jMenu8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu8ActionPerformed(evt);
+            }
+        });
         jMenuBar1.add(jMenu8);
 
         setJMenuBar(jMenuBar1);
@@ -196,6 +212,10 @@ public class VistaPrincipal extends javax.swing.JFrame {
         Alumnos.add(vgm);
         Alumnos.moveToFront(vgm);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenu8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu8ActionPerformed
+        dispose();
+    }//GEN-LAST:event_jMenu8ActionPerformed
 
 
     /**
