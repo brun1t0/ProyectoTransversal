@@ -1,10 +1,13 @@
 
 package proyecto_transversal.Vistas;
 
+import java.awt.Dimension;
+
 public class VistaPrincipal extends javax.swing.JFrame {
 
     public VistaPrincipal() {
         initComponents();
+        this.setMinimumSize(new Dimension(800, 600));
     }
 
     @SuppressWarnings("unchecked")
@@ -12,6 +15,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         Alumnos = new javax.swing.JDesktopPane();
+        jDesktopPane1 = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMGestionAlumnos = new javax.swing.JMenuItem();
@@ -26,22 +30,37 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
+        jDesktopPane1.setLayout(jDesktopPane1Layout);
+        jDesktopPane1Layout.setHorizontalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 753, Short.MAX_VALUE)
+        );
+        jDesktopPane1Layout.setVerticalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 476, Short.MAX_VALUE)
+        );
+
+        Alumnos.setLayer(jDesktopPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
         javax.swing.GroupLayout AlumnosLayout = new javax.swing.GroupLayout(Alumnos);
         Alumnos.setLayout(AlumnosLayout);
         AlumnosLayout.setHorizontalGroup(
             AlumnosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 753, Short.MAX_VALUE)
+            .addComponent(jDesktopPane1)
         );
         AlumnosLayout.setVerticalGroup(
             AlumnosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 484, Short.MAX_VALUE)
+            .addComponent(jDesktopPane1)
         );
 
         jMenuBar1.setBackground(new java.awt.Color(204, 204, 204));
         jMenuBar1.setForeground(new java.awt.Color(204, 204, 204));
+        jMenuBar1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jMenu1.setBackground(new java.awt.Color(204, 204, 204));
         jMenu1.setForeground(new java.awt.Color(0, 0, 0));
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_transversal/Recursos/img/usuarioIcono.png"))); // NOI18N
         jMenu1.setText("Alumno");
 
         jMGestionAlumnos.setText("Formulario de Alumno");
@@ -54,6 +73,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
+        jMenu5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_transversal/Recursos/img/libroIcono.png"))); // NOI18N
         jMenu5.setText("Materia");
 
         jMenuItem2.setText("Formulario de Materia");
@@ -68,6 +88,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
         jMenu3.setBackground(new java.awt.Color(204, 204, 204));
         jMenu3.setForeground(new java.awt.Color(0, 0, 0));
+        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_transversal/Recursos/img/administracionIcono.png"))); // NOI18N
         jMenu3.setText("Administación");
 
         jMenuItem3.setText("Manejo de Inscipciones");
@@ -90,6 +111,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
         jMenu4.setBackground(new java.awt.Color(204, 204, 204));
         jMenu4.setForeground(new java.awt.Color(0, 0, 0));
+        jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_transversal/Recursos/img/consultasIcono.png"))); // NOI18N
         jMenu4.setText("Consultas");
 
         jMenuItem5.setText("Alumnos por Materia");
@@ -104,6 +126,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
         jMenu8.setBackground(new java.awt.Color(204, 204, 204));
         jMenu8.setForeground(new java.awt.Color(0, 0, 0));
+        jMenu8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_transversal/Recursos/img/cerrarIcono.png"))); // NOI18N
         jMenu8.setText("Salir");
         jMenuBar1.add(jMenu8);
 
@@ -121,6 +144,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
@@ -214,6 +238,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane Alumnos;
+    private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JMenuItem jMGestionAlumnos;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu3;

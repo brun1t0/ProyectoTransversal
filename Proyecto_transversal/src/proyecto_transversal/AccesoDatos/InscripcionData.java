@@ -213,5 +213,28 @@ private MateriaData materiadata = new MateriaData();
     return listaAlumnosXMateria;
     }
     
+    
+    public List<Integer> obtenerNota(int idAlumno){
+    String sql = "SELECT `nota`FROM `inscripcion` WHERE idAlumno ="+ idAlumno;
+    List <Integer> notas = new ArrayList<>();
+
+    try {
+        PreparedStatement ps = con.prepareStatement(sql);
+        ResultSet rs = ps.executeQuery();
+        
+        while (rs.next()){
+        
+        notas.add(rs.getInt(1));
+        }
+        
+       return notas; 
+    } catch (SQLException ex) {
+        JOptionPane.showMessageDialog(null, "Ha ocurrido un error al enviar la sentencia: " + ex.getMessage());
+    }
+    return notas;
+
+
+}
+    
 
 }
