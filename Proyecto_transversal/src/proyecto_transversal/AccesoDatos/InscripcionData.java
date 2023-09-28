@@ -4,6 +4,7 @@ package proyecto_transversal.AccesoDatos;
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -159,12 +160,6 @@ private MateriaData materiadata = new MateriaData();
     public void borrarInscripcionMateriaAlumno(int idAlumno, int idMateria){
     String sql = "DELETE FROM `inscripcion` WHERE idAlumno = "+ idAlumno +"  AND idMateria = "+ idMateria;
     
-
-
-    alumnodata.eliminarAlumno(idAlumno);
-    materiadata.eliminarMateria(idMateria);
-
-    
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.executeUpdate();
@@ -216,27 +211,47 @@ private MateriaData materiadata = new MateriaData();
     }
     
     
-    public List<Double> obtenerNota(int idAlumno){
-    String sql = "SELECT `nota`FROM `inscripcion` WHERE idAlumno ="+ idAlumno;
-    List <Double> notas = new ArrayList<>();
-
-    try {
-        PreparedStatement ps = con.prepareStatement(sql);
-        ResultSet rs = ps.executeQuery();
+//    public List<Double> obtenerNota(int idAlumno){
+//    String sql = "SELECT `nota` FROM `inscripcion` WHERE idAlumno ="+ idAlumno;
+//    List <Double> notas = new ArrayList<>();
+//
+//    try {
+//        PreparedStatement ps = con.prepareStatement(sql);
+//        ResultSet rs = ps.executeQuery();
+//        
+//        while (rs.next()){
+//        
+//        notas.add(rs.getDouble(1));
+//        }
+//        
+//       return notas; 
+//    } catch (SQLException ex) {
+//        JOptionPane.showMessageDialog(null, "Ha ocurrido un error al enviar la sentencia: " + ex.getMessage());
+//    }
+//    return notas;
+//
+//
+//}
+    
+public HashMap<Integer, Double> obtenerNota(int idAlumno){
+String sql = "SELECT nota, idMateria FROM `inscripcion` WHERE idAlumno ="+ idAlumno;
+        HashMap<Integer, Double> notas = new HashMap();
         
-        while (rs.next()){
-        
-        notas.add(rs.getDouble(1));
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            
+            while (rs.next()) {
+                
+                notas.put(rs.getInt(2), rs.getDouble(1));
+            }
+            
+            return notas;            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Ha ocurrido un error al enviar la sentencia: " + ex.getMessage());
         }
         
-       return notas; 
-    } catch (SQLException ex) {
-        JOptionPane.showMessageDialog(null, "Ha ocurrido un error al enviar la sentencia: " + ex.getMessage());
+        return notas;
+        
     }
-    return notas;
-
-
-}
-    
-
 }

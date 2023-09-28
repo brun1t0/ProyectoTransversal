@@ -8,7 +8,9 @@ import javax.swing.table.DefaultTableModel;
 import java.lang.Object;
 import java.text.NumberFormat;
 import java.text.ParseException;
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import proyecto_transversal.AccesoDatos.AlumnoData;
@@ -290,21 +292,34 @@ public class VistaCargaDeNotas extends javax.swing.JInternalFrame {
     }
     
 
-public void cargarTabla() {
-    Alumno alu = (Alumno) cboSelectorAlumno.getSelectedItem();
-    int fila = 0;
-    
-    for (Materia listarMateria : inscData.obtenerMateriasCursadas(alu.getIdalumno())) {
-        int ID = listarMateria.getIdMateria();
-        String nombre = listarMateria.getNombre();
-        modeloTabla.addRow(new Object[]{ID, nombre, ""});
-    }
-    
-    for(Double nota : inscData.obtenerNota(alu.getIdalumno())){
-    modeloTabla.setValueAt(nota, fila, 2);
-    
-    fila++;
-    }
+    public void cargarTabla() {
+        Alumno alu = (Alumno) cboSelectorAlumno.getSelectedItem();
+        int fila = 0;
+        
+        HashMap<Integer, Double> nota = inscData.obtenerNota(alu.getIdalumno());
+        
+        for (Materia listarMateria : inscData.obtenerMateriasCursadas(alu.getIdalumno())) {
+            int ID = listarMateria.getIdMateria();
+            String nombre = listarMateria.getNombre();
+
+            for (Map.Entry<Integer, Double> entry : nota.entrySet()) {
+                Integer idMat = entry.getKey();
+                Double valorNota = entry.getValue();
+
+                if (idMat.equals(ID)) {
+                    modeloTabla.addRow(new Object[]{ID, nombre, valorNota});
+                }
+            }
+            
+            
+        }
+
+//        for (Double nota : inscData.obtenerNota(alu.getIdalumno())) {
+//            modeloTabla.setValueAt(nota, fila, 2);
+//
+//            fila++;
+//        }
+        
     }
 
     public void guardarNota() {
