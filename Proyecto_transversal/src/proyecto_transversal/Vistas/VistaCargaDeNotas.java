@@ -5,6 +5,11 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import java.lang.Object;
+import java.text.NumberFormat;
+import java.text.ParseException;
+import java.util.Locale;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import proyecto_transversal.AccesoDatos.AlumnoData;
 import proyecto_transversal.AccesoDatos.InscripcionData;
 import proyecto_transversal.AccesoDatos.MateriaData;
@@ -163,7 +168,7 @@ public class VistaCargaDeNotas extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(cboSelectorAlumno, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE))
+                    .addComponent(cboSelectorAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, 40, Short.MAX_VALUE))
                 .addGap(35, 35, 35)
                 .addComponent(tbNotas, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
@@ -177,11 +182,11 @@ public class VistaCargaDeNotas extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 778, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 762, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 558, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 526, Short.MAX_VALUE)
         );
 
         pack();
@@ -202,7 +207,11 @@ public class VistaCargaDeNotas extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_cboSelectorAlumnoItemStateChanged
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-       guardarNota();
+       
+
+        try{           
+        guardarNota();
+       }catch(NumberFormatException nf){JOptionPane.showMessageDialog(this, "La nota ingresada no es válida.");}
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     
@@ -253,17 +262,18 @@ public void cargarTabla() {
     }
     }
 
-    public void guardarNota(){
+    public void guardarNota() {
         Object columnaNota = tablaNotas.getValueAt(tablaNotas.getSelectedRow(), 2);
-        Double notaMat = (Double) columnaNota;
-        Object columnaId = tablaNotas.getValueAt(tablaNotas.getSelectedRow(), 2);
-        int idMat = (int) columnaId;
-        Object alumnoSeleccionado = cboSelectorAlumno.getSelectedItem();
-        
-        
-        Alumno alu = (Alumno) alumnoSeleccionado;
-        System.out.println("nota"+ notaMat + "Alumno " + alu.toString() + "ID " + idMat);
-        inscData.actualizarNota(alu.getIdalumno(), idMat, notaMat);
+        Double notaMat = Double.parseDouble(columnaNota.toString());
+
+        Object columnaId = tablaNotas.getValueAt(tablaNotas.getSelectedRow(), 0);
+        Integer idMat = Integer.parseInt(columnaId.toString());
+
+        Alumno alumnoSeleccionado = cboSelectorAlumno.getItemAt(cboSelectorAlumno.getSelectedIndex());
+
+        inscData.actualizarNota(alumnoSeleccionado.getIdalumno(), idMat, notaMat);
+
+        JOptionPane.showMessageDialog(this, "Nota actualizada con éxito.");
     }
     
 
