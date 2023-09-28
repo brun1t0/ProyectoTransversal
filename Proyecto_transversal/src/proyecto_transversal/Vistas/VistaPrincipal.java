@@ -217,10 +217,8 @@ public class VistaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMGestionAlumnosActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-       Alumnos.removeAll();
+        Alumnos.removeAll();
         Alumnos.repaint();
-        
-        
         VistaGestionMateria vgm = new VistaGestionMateria();
         vgm.setVisible(true);
         Alumnos.add(vgm);
