@@ -94,7 +94,7 @@ public class VistaGestionMateria extends javax.swing.JInternalFrame {
         tituloPrincipal3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         tituloPrincipal3.setForeground(new java.awt.Color(0, 0, 0));
         tituloPrincipal3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        tituloPrincipal3.setText("Alumno");
+        tituloPrincipal3.setText("Materia");
         tituloPrincipal3.setToolTipText("");
 
         jSeparator5.setBackground(new java.awt.Color(204, 204, 204));
@@ -109,7 +109,7 @@ public class VistaGestionMateria extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(CabeceraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(CabeceraLayout.createSequentialGroup()
-                        .addGap(0, 14, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 760, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(CabeceraLayout.createSequentialGroup()
                         .addComponent(tituloPrincipal3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -169,15 +169,13 @@ public class VistaGestionMateria extends javax.swing.JInternalFrame {
             BotoneraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(BotoneraLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jBNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(79, 79, 79)
-                .addComponent(jBEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jBNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(46, 46, 46)
+                .addComponent(jBEliminar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(BotoneraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jBGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(BotoneraLayout.createSequentialGroup()
-                        .addGap(178, 178, 178)
-                        .addComponent(jBSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addComponent(jBGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jBSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         BotoneraLayout.setVerticalGroup(
@@ -344,24 +342,12 @@ public class VistaGestionMateria extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JRadioButton jRBEstado;
-    private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JTextField jTAnio;
     private javax.swing.JTextField jTCodigo;
     private javax.swing.JTextField jTNombre;
-    private javax.swing.JLabel logoULP;
-    private javax.swing.JLabel logoULP1;
-    private javax.swing.JLabel logoULP2;
     private javax.swing.JLabel logoULP3;
-    private javax.swing.JLabel tituloPrincipal;
-    private javax.swing.JLabel tituloPrincipal1;
-    private javax.swing.JLabel tituloPrincipal2;
     private javax.swing.JLabel tituloPrincipal3;
     // End of variables declaration//GEN-END:variables
 
