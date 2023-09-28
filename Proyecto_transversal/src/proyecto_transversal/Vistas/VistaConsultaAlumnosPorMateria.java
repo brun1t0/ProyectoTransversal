@@ -26,7 +26,9 @@ public class VistaConsultaAlumnosPorMateria extends javax.swing.JInternalFrame {
      */
     public VistaConsultaAlumnosPorMateria() {
         initComponents();
-        this.setMinimumSize(new Dimension(800, 600));
+        this.setSize(800 ,600);
+        this.setTitle("Consulta de Alumnos Inscriptos por Materia");
+        this.setResizable(false);
         
         for (Materia listarMateria : matData.listarMaterias()) {
         selectorMateria.addItem(listarMateria);
@@ -45,14 +47,15 @@ public class VistaConsultaAlumnosPorMateria extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        tituloPrincipal = new javax.swing.JLabel();
-        jSeparator2 = new javax.swing.JSeparator();
-        logoULP = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         selectorMateria = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaMaterias = new javax.swing.JTable();
         btnSalir = new javax.swing.JButton();
+        Cabecera = new javax.swing.JPanel();
+        tituloPrincipal3 = new javax.swing.JLabel();
+        jSeparator5 = new javax.swing.JSeparator();
+        logoULP3 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(51, 255, 51));
         setPreferredSize(new java.awt.Dimension(780, 580));
@@ -60,15 +63,6 @@ public class VistaConsultaAlumnosPorMateria extends javax.swing.JInternalFrame {
         jPanel1.setBackground(new java.awt.Color(74, 166, 134));
         jPanel1.setPreferredSize(new java.awt.Dimension(790, 900));
         jPanel1.setRequestFocusEnabled(false);
-
-        tituloPrincipal.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        tituloPrincipal.setForeground(new java.awt.Color(0, 0, 0));
-        tituloPrincipal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        tituloPrincipal.setText("Consulta de Alumnos por Materia");
-
-        jSeparator2.setBackground(new java.awt.Color(204, 204, 204));
-
-        logoULP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_transversal/Recursos/img/logoULP.png"))); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
@@ -114,6 +108,46 @@ public class VistaConsultaAlumnosPorMateria extends javax.swing.JInternalFrame {
             }
         });
 
+        Cabecera.setBackground(new java.awt.Color(74, 166, 134));
+
+        tituloPrincipal3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        tituloPrincipal3.setForeground(new java.awt.Color(0, 0, 0));
+        tituloPrincipal3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        tituloPrincipal3.setText("Listado de Alumnos por Materia");
+        tituloPrincipal3.setToolTipText("");
+
+        jSeparator5.setBackground(new java.awt.Color(204, 204, 204));
+
+        logoULP3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_transversal/Recursos/img/logoULP.png"))); // NOI18N
+
+        javax.swing.GroupLayout CabeceraLayout = new javax.swing.GroupLayout(Cabecera);
+        Cabecera.setLayout(CabeceraLayout);
+        CabeceraLayout.setHorizontalGroup(
+            CabeceraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(CabeceraLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(CabeceraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(CabeceraLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 760, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(CabeceraLayout.createSequentialGroup()
+                        .addComponent(tituloPrincipal3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(logoULP3, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        CabeceraLayout.setVerticalGroup(
+            CabeceraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(CabeceraLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(CabeceraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tituloPrincipal3, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(logoULP3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -122,38 +156,26 @@ public class VistaConsultaAlumnosPorMateria extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(tituloPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(70, 70, 70)
-                        .addComponent(logoULP, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(jSeparator2)))
-                .addGap(36, 36, 36))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(57, 57, 57)
+                        .addGap(58, 58, 58)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jScrollPane1)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 249, Short.MAX_VALUE)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE)
                                 .addGap(127, 127, 127)
                                 .addComponent(selectorMateria, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(64, 64, 64))
+                .addGap(58, 58, 58))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Cabecera, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(logoULP)
-                    .addComponent(tituloPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Cabecera, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -162,18 +184,18 @@ public class VistaConsultaAlumnosPorMateria extends javax.swing.JInternalFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
                 .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(59, Short.MAX_VALUE))
+                .addGap(40, 40, 40))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 778, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 798, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 558, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 578, Short.MAX_VALUE)
         );
 
         pack();
@@ -195,15 +217,16 @@ public class VistaConsultaAlumnosPorMateria extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel Cabecera;
     private javax.swing.JButton btnSalir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JLabel logoULP;
+    private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JLabel logoULP3;
     private javax.swing.JComboBox<Materia> selectorMateria;
     private javax.swing.JTable tablaMaterias;
-    private javax.swing.JLabel tituloPrincipal;
+    private javax.swing.JLabel tituloPrincipal3;
     // End of variables declaration//GEN-END:variables
 
         public void crearModeloTabla() {

@@ -29,7 +29,9 @@ public class VistaInscripciones extends javax.swing.JInternalFrame {
     private int botonSeleccionado = 0;
 
     public VistaInscripciones() {
-        
+        this.setSize(800 ,600);
+        this.setTitle("Gestion de Inscripciones");
+        this.setResizable(false);
         initComponents();
         for (Alumno listarAlumno : alumnosdata.listarAlumnos()) {
             cbAlumnos.addItem(listarAlumno);
@@ -52,24 +54,66 @@ public class VistaInscripciones extends javax.swing.JInternalFrame {
 
         grupBotones = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
+        Cabecera = new javax.swing.JPanel();
+        tituloPrincipal3 = new javax.swing.JLabel();
+        jSeparator5 = new javax.swing.JSeparator();
+        logoULP3 = new javax.swing.JLabel();
         rbMateriasInscriptas = new javax.swing.JRadioButton();
         rbMateriasNoInscriptas = new javax.swing.JRadioButton();
         cbAlumnos = new javax.swing.JComboBox<>();
         jScrollPane2 = new javax.swing.JScrollPane();
         tTablaInscripciones = new javax.swing.JTable();
-        bInscribir = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        bAnularInscripcion = new javax.swing.JButton();
-        bSalir = new javax.swing.JButton();
         rowCount = new javax.swing.JLabel();
-        tituloPrincipal = new javax.swing.JLabel();
-        jSeparator2 = new javax.swing.JSeparator();
-        logoULP = new javax.swing.JLabel();
+        Botonera = new javax.swing.JPanel();
+        bSalir = new javax.swing.JButton();
+        bAnularInscripcion = new javax.swing.JButton();
+        bInscribir = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(204, 204, 204));
 
         jPanel1.setBackground(new java.awt.Color(74, 166, 134));
+
+        Cabecera.setBackground(new java.awt.Color(74, 166, 134));
+
+        tituloPrincipal3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        tituloPrincipal3.setForeground(new java.awt.Color(0, 0, 0));
+        tituloPrincipal3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        tituloPrincipal3.setText("Inscripciones");
+        tituloPrincipal3.setToolTipText("");
+
+        jSeparator5.setBackground(new java.awt.Color(204, 204, 204));
+
+        logoULP3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_transversal/Recursos/img/logoULP.png"))); // NOI18N
+
+        javax.swing.GroupLayout CabeceraLayout = new javax.swing.GroupLayout(Cabecera);
+        Cabecera.setLayout(CabeceraLayout);
+        CabeceraLayout.setHorizontalGroup(
+            CabeceraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(CabeceraLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(CabeceraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(CabeceraLayout.createSequentialGroup()
+                        .addGap(0, 20, Short.MAX_VALUE)
+                        .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 760, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(CabeceraLayout.createSequentialGroup()
+                        .addComponent(tituloPrincipal3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(logoULP3, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        CabeceraLayout.setVerticalGroup(
+            CabeceraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(CabeceraLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(CabeceraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tituloPrincipal3, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(logoULP3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
 
         grupBotones.add(rbMateriasInscriptas);
         rbMateriasInscriptas.setText("Materias Inscriptas");
@@ -129,29 +173,18 @@ public class VistaInscripciones extends javax.swing.JInternalFrame {
             tTablaInscripciones.getColumnModel().getColumn(2).setHeaderValue("Año");
         }
 
-        bInscribir.setText("Inscribir");
-        bInscribir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bInscribirActionPerformed(evt);
-            }
-        });
-
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Listado de Materias");
 
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Seleccione un Alumno");
 
-        bAnularInscripcion.setText("Anular inscripción");
-        bAnularInscripcion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bAnularInscripcionActionPerformed(evt);
-            }
-        });
+        Botonera.setBackground(new java.awt.Color(74, 166, 134));
 
+        bSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_transversal/Recursos/img/cerrarIcono.png"))); // NOI18N
         bSalir.setText("Salir");
         bSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -159,38 +192,60 @@ public class VistaInscripciones extends javax.swing.JInternalFrame {
             }
         });
 
-        tituloPrincipal.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        tituloPrincipal.setForeground(new java.awt.Color(0, 0, 0));
-        tituloPrincipal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        tituloPrincipal.setText("Formulario de Inscripcion");
+        bAnularInscripcion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_transversal/Recursos/img/eliminarIcono.png"))); // NOI18N
+        bAnularInscripcion.setText("Anular inscripción");
+        bAnularInscripcion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bAnularInscripcionActionPerformed(evt);
+            }
+        });
 
-        jSeparator2.setBackground(new java.awt.Color(204, 204, 204));
+        bInscribir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_transversal/Recursos/img/guardarIcono.png"))); // NOI18N
+        bInscribir.setText("Inscribir");
+        bInscribir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bInscribirActionPerformed(evt);
+            }
+        });
 
-        logoULP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_transversal/Recursos/img/logoULP.png"))); // NOI18N
+        javax.swing.GroupLayout BotoneraLayout = new javax.swing.GroupLayout(Botonera);
+        Botonera.setLayout(BotoneraLayout);
+        BotoneraLayout.setHorizontalGroup(
+            BotoneraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BotoneraLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(bInscribir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(129, 129, 129)
+                .addComponent(bAnularInscripcion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(149, 149, 149)
+                .addComponent(bSalir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        BotoneraLayout.setVerticalGroup(
+            BotoneraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BotoneraLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(BotoneraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bInscribir, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bAnularInscripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(rowCount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(718, 718, 718))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(bInscribir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(129, 129, 129)
-                        .addComponent(bAnularInscripcion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(149, 149, 149)
-                        .addComponent(bSalir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(20, 20, 20))))
+                .addContainerGap()
+                .addComponent(Cabecera, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(69, 69, 69)
+                .addGap(17, 17, 17)
+                .addComponent(rowCount, javax.swing.GroupLayout.DEFAULT_SIZE, 63, Short.MAX_VALUE)
+                .addGap(718, 718, 718))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(58, 58, 58)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane2)
-                        .addGap(74, 74, 74))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -200,49 +255,42 @@ public class VistaInscripciones extends javax.swing.JInternalFrame {
                                 .addComponent(cbAlumnos, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(rbMateriasInscriptas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(201, 201, 201)
-                                .addComponent(rbMateriasNoInscriptas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGap(73, 73, 73))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(216, 216, 216)
-                        .addComponent(tituloPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(70, 70, 70)
-                        .addComponent(logoULP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(10, 10, 10))
-                    .addComponent(jSeparator2))
-                .addContainerGap())
+                                .addGap(437, 437, 437)))
+                        .addGap(58, 58, 58))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(rbMateriasNoInscriptas, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(Botonera, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jScrollPane2))
+                        .addGap(58, 58, 58))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
+                .addContainerGap()
+                .addComponent(Cabecera, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(logoULP)
-                    .addComponent(tituloPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(rowCount, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbAlumnos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(28, 28, 28)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addComponent(rowCount, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(cbAlumnos, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(rbMateriasNoInscriptas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addComponent(rbMateriasInscriptas, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
-                .addGap(24, 24, 24)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bInscribir, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bAnularInscripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(46, 46, 46))
+                    .addComponent(rbMateriasInscriptas, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41)
+                .addComponent(Botonera, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -253,17 +301,18 @@ public class VistaInscripciones extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cbAlumnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbAlumnosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbAlumnosActionPerformed
+    private void bSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirActionPerformed
+
+        removeAll();
+        repaint();
+        setVisible(false);
+    }//GEN-LAST:event_bSalirActionPerformed
 
     private void bAnularInscripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAnularInscripcionActionPerformed
         try {
@@ -282,13 +331,6 @@ public class VistaInscripciones extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(this, "La tabla está vacía. Debe ingresar almenos una materia");
         }
     }//GEN-LAST:event_bAnularInscripcionActionPerformed
-
-    private void bSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirActionPerformed
-        
-        removeAll();
-        repaint();
-        setVisible(false);
-    }//GEN-LAST:event_bSalirActionPerformed
 
     private void bInscribirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bInscribirActionPerformed
         try {
@@ -312,24 +354,13 @@ public class VistaInscripciones extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_bInscribirActionPerformed
 
-    private void rbMateriasNoInscriptasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbMateriasNoInscriptasActionPerformed
-        bInscribir.setEnabled(true);
-        bAnularInscripcion.setEnabled(false);
-        eliminarTodosLosElementosDeLaTabla();
-        actualizarMateriasNoInscriptas();
-
-    }//GEN-LAST:event_rbMateriasNoInscriptasActionPerformed
-
-    private void rbMateriasInscriptasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbMateriasInscriptasActionPerformed
-        bInscribir.setEnabled(false);
-        bAnularInscripcion.setEnabled(true);
-        eliminarTodosLosElementosDeLaTabla();
-        actualizarMateriasInscriptas();
-    }//GEN-LAST:event_rbMateriasInscriptasActionPerformed
-
     private void cbAlumnosPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_cbAlumnosPropertyChange
 
     }//GEN-LAST:event_cbAlumnosPropertyChange
+
+    private void cbAlumnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbAlumnosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbAlumnosActionPerformed
 
     private void cbAlumnosItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbAlumnosItemStateChanged
         if (rbMateriasNoInscriptas.isSelected()) {
@@ -341,8 +372,24 @@ public class VistaInscripciones extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_cbAlumnosItemStateChanged
 
+    private void rbMateriasNoInscriptasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbMateriasNoInscriptasActionPerformed
+        bInscribir.setEnabled(true);
+        bAnularInscripcion.setEnabled(false);
+        eliminarTodosLosElementosDeLaTabla();
+        actualizarMateriasNoInscriptas();
+    }//GEN-LAST:event_rbMateriasNoInscriptasActionPerformed
+
+    private void rbMateriasInscriptasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbMateriasInscriptasActionPerformed
+        bInscribir.setEnabled(false);
+        bAnularInscripcion.setEnabled(true);
+        eliminarTodosLosElementosDeLaTabla();
+        actualizarMateriasInscriptas();
+    }//GEN-LAST:event_rbMateriasInscriptasActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel Botonera;
+    private javax.swing.JPanel Cabecera;
     private javax.swing.JButton bAnularInscripcion;
     private javax.swing.JButton bInscribir;
     private javax.swing.JButton bSalir;
@@ -352,13 +399,13 @@ public class VistaInscripciones extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JLabel logoULP;
+    private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JLabel logoULP3;
     private javax.swing.JRadioButton rbMateriasInscriptas;
     private javax.swing.JRadioButton rbMateriasNoInscriptas;
     private javax.swing.JLabel rowCount;
     private javax.swing.JTable tTablaInscripciones;
-    private javax.swing.JLabel tituloPrincipal;
+    private javax.swing.JLabel tituloPrincipal3;
     // End of variables declaration//GEN-END:variables
 
     public void InsertarModeloATabla() {
